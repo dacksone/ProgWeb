@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Ejemplo con imágenes</title>
+
+<style type="text/css">
+h1  { font-size: 2em;   /*Es una unidad relativa , en este caso 2 veces mas grande que la fuente actual */
+      color: maroon;    /*Indica que el color del texto del h1, en este caso color  maroon  */
+      font-family: Verdana ;  /*Indica la fuente de letra a usar dentro del h1*/
+      text-align: center; /* Indica que el texto sera alineado de forma centrada*/
+      border-bottom: 2px solid maroon;   /* border-bottom: 2px : Indica que debe ir una linea debado del texto de tamaño 2 pixeles
+                                          y solid maroon; indica que es una linea completa de color maroon */
+      margin: 0 70px;    /*indica la margen que se le aplica al texto 0 indica de forma vertical y
+                          70px de forma horizontal*/
+      padding-bottom: 0.5em; /* Indica el espacio entre lineas del texto */
+    }
+
+h2  { font-size: 1.5em;  /*Es una unidad relativa , en este caso 1.5 veces mas pequeño que la fuente actual */
+      color: olive;      /*Indica que el color del texto del h2, en este caso color  olive */
+      font-family: Verdana ;  /*Indica la fuente de letra a usar dentro del h2*/
+      text-align:left  ;           /* Indica que el texto sera alineado a la izquierda*/
+      margin: 20px 80px;  /*indica la margen que se le aplica al texto 20 indica de forma vertical y
+                          80px de forma horizontal*/
+    }
+
+h3  { font-size: 1.2em;   /*Es una unidad relativa , en este caso 1.2 veces mas pequeño que la fuente actual */
+      color: mavy;        /*Indica que el color del texto del h3, en este caso color  mavy */
+      font-family: "times new roman" ;   /*Indica la fuente de letra a usar dentro del h2*/
+      text-align: justify;              /* Indica que el texto sera alineado de forma justificada*/
+      font-style: italic;   /*Indica que el texto esta de forma recostada jeje*/
+      margin:0 40px;        /*indica la margen que se le aplica al texto 0 indica de forma vertical y
+                          40px de forma horizontal*/
+      border: 10px double aqua;  /* border 10px : Indica que aplica un borde/recuadro sobre el texto,
+                                de tamaño 10 pixeles y double aqua; indica que es una linea doble y de color aqua */
+      padding: 30px;            /* Indica el espacio entre lineas del texto */
+    }
+
+p  {  font-size: 1.2em; /*Es una unidad relativa , en este caso 1.2 veces mas pequeño que la fuente actual */
+      color: teal;     /*Indica que el color del texto del h2, en este caso color  mavy */
+      font-family: fantasy ; /*Indica la fuente de letra a usar dentro del h2*/
+      text-align: justify;  /* Indica que el texto sera alineado de forma justificada*/
+      text-indent: 3em;   /* Indica la sangria del texto en este caso es 3 veces mas grande que la original*/
+      margin:20px 40px;  /*indica la margen que se le aplica al texto 20 indica de forma vertical y
+                          40px de forma horizontal*/
+    }
+
+.dib0  {  float: left ;  /* Alineacion de la imagen a la izquierda*/
+          width: 100px 100;  /* tamaño de la imagen, conservando su relacion de aspecto*/
+          margin: 10px 40px; /* margenes de la imagen , en este caso 10 vertical y 40 horizonal*/
+        }
+.dib1  {  float: right;  /* Alineacion de la imagen a la derecha*/
+          width: 150px;  /* tamaño de la imagen, conservando su relacion de aspecto*/
+          margin: 10px 40px;   /* margenes de la imagen , en este caso 10 vertical y 40 horizonal*/
+          padding: 5px;      /* Indica el espacio entre la imagen y el espacio frente a otros objetos */
+          border: 1px solid black  /* Indica que se genera una recuadro en todas direcicones de 1 pixelde groso
+                                    y de forma solida quiere decir completa de color negro */
+        }
+.dib2  {  float: left;  /* Alineacion de la imagen a la izquierda*/
+          width: 200px;   /* tamaño de la imagen, conservando su relacion de aspecto*/
+          margin: 15px 40px;   /* margenes de la imagen , en este caso 15 vertical y 40 horizonal*/
+        }
+
+</style>
+
+</head>
+
+<body>
+<img class="dib0" src="quijote0.gif" alt="Libro del Quijote">
+<h1>El Ingenioso Hidalgo Don Quijote de la Mancha</h1>
+<h2>Primera parte</h2>
+
+<h3>Capítulo 8: Del buen suceso que el valeroso Don Quijote tuvo en la espantable y
+jamás imaginada aventura de los molinos de viento, con otros sucesos dignos de felice
+recordación</h3>
+
+<img class="dib1" src="quijote1.gif" alt="Don Quijote">
+<p>En esto descubrieron treinta o cuarenta molinos de viento que hay en aquel
+campo, y así como Don Quijote los vió, dijo a su escudero: la ventura va
+guiando nuestras cosas mejor de lo que acertáramos a desear; porque ves allí,
+amigo Sancho Panza, donde se descubren treinta o poco más desaforados
+gigantes con quien pienso hacer batalla, y quitarles a todos las vidas, con
+cuyos despojos comenzaremos a enriquecer: que esta es buena guerra, y es
+gran servicio de Dios quitar tan mala simiente de sobre la faz de la tierra.
+¿Qué gigantes? dijo Sancho Panza.</p>
+
+<img class="dib2" src="quijote2.gif" alt="Ataque a los molinos.">
+<p>Aquellos que allí ves, respondió su amo, de los brazos largos, que los suelen
+tener algunos de casi dos leguas. Mire vuestra merced, respondió Sancho, que
+aquellos que allí se parecen no son gigantes, sino molinos de viento, y lo que
+en ellos parecen brazos son las aspas, que volteadas del viento hacen andar la
+piedra del molino.</p>
+
+</body>
+</html>

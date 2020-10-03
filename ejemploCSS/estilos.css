@@ -1,0 +1,75 @@
+/* atributo de texto para la página */
+body {
+	font-family: Arial;
+}
+/* ESTILOS GENERALES */
+
+
+/* propiedades para los ul */
+nav ul {
+	list-style:none; /* Quita viñetas en la lista */
+	padding:0; /* Párrafo con sangría 0 */
+	display: table-caption;
+
+}
+/* propiedades para los li */
+nav li {
+	line-height: 3rem; /* altura de una casilla marcada por líneas */
+	position: relative; /* posiciona un elemento por defecto dentro de la página... static,relative,absolute */
+}
+/* propiedades para los ul del menú*/
+.menu ul {
+	position: absolute; /* posiciona elemento tomando como referencia la ventana del navegador */
+}
+/* propiedades para los hipervínculos del menú */
+nav a {
+	color:#ddd; /* coloca los Items del menú en color gris claro */
+	display:block; /* tipo de cuadro de representación utilizado para a...bloque..  */
+	padding: 0 2.5em; /* espacio entre items */
+	text-decoration: none; /* Tipo de decoración en las líneas de texto */
+	transition: .4s; /* tiempo entre cambio de propiedad */
+}
+/* Efectos sobre los items del menú */
+nav a:hover {
+	background: rgba(0,0,0,.5); /* gama de colores de los efectos sobre los items */
+/*	background: rgba(0, 255, 0, 0.1) ..... verificar gama de colores */
+}
+
+/*PRIMER NIVEL*/
+/* propiedades de primer nivel ...ul.. */
+.menu {
+	background: #333 ; /*fondo color nivel 1*/
+	display: grid;  /* tipo de caja generado por el elemento */
+	width: 20%; /* ancho del elemento*/
+}
+/* propiedades de primer nivel ...li.. */
+.menu > li {
+	/*float: left;*/ */ Menú en forma horizontal */
+	float: right;  Menú en forma vertical
+}
+/*SEGUNDO NIVEL*/
+/* propiedades de segundo nivel ...li li. */
+nav li li {
+	background: #222;
+	max-height: 0;
+	overflow: hidden;  /*Regular la visiblidad de los contenidos que sobresalen en la caja */
+	transition: all .6s; /* Tansición entre dos estados de un elemento */
+	width:  200px;
+	position: relative;
+}
+nav li:hover > ul > li {
+	max-height: 1000px;
+	overflow: visible;
+}
+
+.menu > li > ul {
+	top:100%;
+	left: 100%;
+}
+
+/*TERCER NIVEL */
+
+.menu ul ul {
+	left: 100%;
+	top:0;
+}
