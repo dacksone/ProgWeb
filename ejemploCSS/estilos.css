@@ -27,7 +27,7 @@ nav a {
 	display:block; /* tipo de cuadro de representación utilizado para a...bloque..  */
 	padding: 0 2.5em; /* espacio entre items */
 	text-decoration: none; /* Tipo de decoración en las líneas de texto */
-	transition: .4s; /* tiempo entre cambio de propiedad */
+	transition: .2s; /* tiempo entre cambio de propiedad */
 }
 /* Efectos sobre los items del menú */
 nav a:hover {
