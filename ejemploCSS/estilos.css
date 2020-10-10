@@ -1,6 +1,7 @@
 /* atributo de texto para la página */
 body {
 	font-family: Arial;
+	background: #34495e;
 }
 /* ESTILOS GENERALES */
 
@@ -40,7 +41,7 @@ nav a:hover {
 .menu {
 	background: #333 ; /*fondo color nivel 1*/
 	display: grid;  /* tipo de caja generado por el elemento */
-	width: 20%; /* ancho del elemento*/
+	width: 10%; /* ancho del elemento*/
 }
 /* propiedades de primer nivel ...li.. */
 .menu > li {
@@ -53,7 +54,7 @@ nav li li {
 	background: #222;
 	max-height: 0;
 	overflow: hidden;  /*Regular la visiblidad de los contenidos que sobresalen en la caja */
-	transition: all .6s; /* Tansición entre dos estados de un elemento */
+	transition: all .2s; /* Tansición entre dos estados de un elemento */
 	width:  200px;
 	position: relative;
 }
