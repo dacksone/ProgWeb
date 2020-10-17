@@ -1,0 +1,230 @@
+<html>
+<head>
+<title>CAPTURA AFILIADOS</title>
+<script language="JavaScript">
+function Validar( formulario ) {
+  var cedula = formulario.cedula.value;
+  var sueldo = formulario.sueldo.value;  
+  var dia = formulario.dia.value;
+  var mes = formulario.mes.value;
+  var ano = formulario.ano.value; 
+  var listanumeros = "0123456789";
+  var cont = 0;
+  var largocedula = cedula.length ;
+  var clave = formulario.password.value;
+  var clave1 = formulario.password1.value;
+  var largoclave = clave.length ;
+  var largoclave1 = clave1.length ;  
+  if(largocedula<1)
+  {
+    alert("Favor ingrese datos a la cedula");
+    formulario.cedula.focus();
+    return (false);
+  }
+    cont = 0;
+    for(i=0;i<cedula.length;i++)
+ {
+    ch = cedula.charAt(i);
+    for (j=0;j<listanumeros.length; j++)
+   {
+      if(ch ==listanumeros.charAt(j))
+       {
+          cont = cont + 1;
+          j = listanumeros.length;
+          break;
+        }       
+    }  
+  }
+  if(cont < cedula.length)
+  {
+    alert("El campo cedula tiene caracteres no reconocidos");
+    formulario.cedula.focus();
+    return (false);   
+  }  
+  
+  
+  /*SUELDO*/
+  
+  if (sueldo < 980657){
+      alert("El sueldo debe ser mayor a 980.657");
+      formulario.sueldo.focus();
+      return(false);
+  }else if (sueldo > 15000000){
+      alert("El sueldo debe ser menor a 15.000.000");
+      formulario.sueldo.focus();
+      return(false);
+  }
+  
+ if(largoclave<4)
+  {
+    alert("Favor ingrese datos completos al password");
+    formulario.password.focus();
+    return (false);
+  } 
+  if(largoclave1<4)
+  {
+    alert("Favor ingrese datos completos a la confimacion del password");
+    formulario.password1.focus();
+    return (false);
+  }   
+
+    if(formulario.password.value != formulario.password1.value){
+      alert("El password debe ser igual en ambos campos.");
+         return (false);
+  }     
+        
+  if(dia=="0")
+  {
+      alert("Dia no puede ser 0");
+      return (false);
+  }  
+  if(mes=="0"){
+      alert("Mes no puede ser 0");
+      return (false);
+  }
+  if(ano=="0"){
+      alert("Año no puede ser 0");
+      return (false);
+  }
+  if(mes == "2"){
+      if(dia == "29" || dia == "30" || dia == "31"){
+          alert("Fecha no valida.");
+         return (false);
+      }      
+  }
+  if(mes == "4"){
+      if(dia == "31"){
+          alert("Fecha no valida.");
+         return (false);
+      }      
+  }  
+  if(mes == "6"){
+      if(dia == "31"){
+          alert("Fecha no valida.");
+         return (false);
+      }      
+  }
+  
+  if(mes == "9"){
+      if(dia == "31"){
+          alert("Fecha no valida.");
+         return (false);
+      }      
+  }  
+  if(mes == "11")
+  {
+      if(dia == "31")
+      {
+          alert("Fecha no valida.");
+         return (false);
+      }      
+  }   
+}
+</script> 
+</head>
+<body>
+ <FORM name="formulario"  ACTION ="programa1.php" METHOD="get" onSubmit="return Validar(this);">
+ <H2>DATOS FORMULARIO</H2>
+ <font face="Arial"> 
+   <br>
+   <br>	   
+   <table border="1">
+   <tr>	
+	<td>CEDULA</td>       
+	<td><input name="cedula"        type="text"   id="cedula"    size="50" title="cèdula"></td>
+	</TR> 
+<tr>       	
+	<td>SUELDO</td>
+	<td><input name="sueldo" type="number"  id="sueldo"  size="20" title="Sueldo"></td>
+	</TR>  		
+	<tr>       	
+	<td>PASSWORD</td>
+	<td><input name="password" type="password"  id="password"  size="20" title="CLAVE"></td>
+	</TR>  	
+	<tr>       	
+	<td>CONFIRMA PASSWORD</td>
+	<td><input name="password1" type="password"  id="password1"  size="20" title="CLAVE1"></td>
+	</TR>  	
+<tr>
+<td>Fecha Nac:</td>
+<td>    
+Dia
+<select name="dia" size="1">
+ 	<option value='0'>0</option>
+	<option value='1'>1</option>
+	<option value='2'>2</option>
+	<option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+        <option value='11'>11</option>
+        <option value='12'>12</option>
+        <option value='13'>13</option>
+        <option value='14'>14</option>
+        <option value='15'>15</option>
+        <option value='16'>16</option>
+        <option value='17'>17</option>
+        <option value='18'>18</option>
+        <option value='19'>19</option>
+        <option value='20'>20</option>
+        <option value='21'>21</option>
+        <option value='22'>22</option>
+        <option value='23'>23</option>
+        <option value='24'>24</option>
+        <option value='25'>25</option>
+        <option value='26'>26</option>
+        <option value='27'>27</option>
+        <option value='28'>28</option>
+        <option value='29'>29</option>
+        <option value='30'>30</option>
+        <option value='31'>31</option>
+   </select>
+   Mes
+<select name="mes" size="1">
+        <option value='0'>0</option>
+   	<option value='1'>1</option>
+	<option value='2'>2</option>
+	<option value='3'>3</option>
+	<option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+        <option value='11'>11</option>
+        <option value='12'>12</option>
+</select>
+Anio
+<select name="ano" size="1">
+        <option value='0'>0</option>
+   	<option value='1980'>1980</option>
+	<option value='1981'>1981</option>
+	<option value='1982'>1982</option>
+	<option value='1983'>1983</option>
+        <option value='1984'>1984</option>
+        <option value='1985'>1985</option>
+        <option value='1986'>1986</option>
+        <option value='1987'>1987</option>
+        <option value='1988'>1988</option>
+        <option value='1989'>1989</option>
+        <option value='1990'>1990</option>
+</select>
+</td>
+</tr>
+<tr>
+	<td>Mensaje</td>
+	<td><textarea name="mensaje" rows="10" cols="40"></textarea></td>
+</tr>
+<tr>
+	<td><input type="submit" value="Enviar"></td>
+	<td></td>
+</tr>
+    </table>
+   </FORM>
+</body>
+</html>

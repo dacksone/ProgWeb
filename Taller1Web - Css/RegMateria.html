@@ -1,0 +1,40 @@
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Registro Materias</title>
+      <link rel="stylesheet" href="css\estilo2.css">
+      <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+    <form action="index.html" method="post">
+
+      <h1>Registro de materias</h1>
+
+      <fieldset>
+        <legend><span class="number">1</span>Ingrese los datos de la materia</legend>
+
+        <label for="codigo">Codigo de la materia:</label>
+        <input type="text" id="codigo" name="codigo">
+
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+
+        <label for="Ncreditos">Numero de creditos</label>
+        <input type="number" id="Ncreditos" name="Ncreditos"  min="0" max="10">
+
+        <label for="Ihoraria">Intesidad Horaria</label>
+        <input type="number" id="Ihoraria" name="Ihoraria"  min="0" max="500">
+
+      </fieldset>
+
+
+      <button type="submit">Guardar</button>
+      <a href="index.html"><button>Volver</button></a>
+    </form>
+
+  </body>
+</html>

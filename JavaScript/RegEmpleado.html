@@ -1,0 +1,286 @@
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Registro Empleado</title>
+      <!-- link documentos css -->
+      <link rel="stylesheet" href="css\estilo2.css">
+      <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+      <!-- <link src="js\jsfile.js" -->
+      <script language="JavaScript">
+      function Validar( formulario ) {
+        //Camptura de datos
+
+        var nombre = formulario.nombre.value;  //nombre
+        var nombrelargo = nombre.length;       //tamaño nombre
+
+        var apellido = formulario.apellido.value;  //apellido
+        var apellidolargo = apellido.length;       //tamaño apellido
+
+        var cedula = formulario.cedula.value;  //cedula
+        var cedulalargo = cedula.length ; // tamaño cedula
+
+        var genero = formulario.genero.value;  //genero
+        var fechaingreso = formulario.fechaingreso.value; // fechaingreso
+        var sueldobasico = formulario.sueldobasico.value; // sueldobasico
+        //var sueldobasico1 = parseint(sueldobasico);
+        var numerohijos = formulario.numerohijos.value;  // numerohijos
+
+        var subsidiotransporte = formulario.subsidiotransporte.value // numerohijos
+        var subsidiofamiliar = formulario.subsidiofamiliar.value // subsidiofamiliar
+        var totaldevengado = formulario.totaldevengado.value // totaldevengado
+
+        //Variable de recorrido
+        var listanumeros = "0123456789";
+
+        // contadores
+        var cont = 0;
+        //Variables constantes
+        const VALORSUBSTRANSP = 102854; // valor de subsidio de transporte
+        const VALORSUBFAM = 70000; //  valor de subsidio familiar
+        const VALORSALARIOMINIMO = 980657;
+
+
+        /* Validacion de ingreso de datos */
+
+        //Validacion de nombre
+        if(nombrelargo < 1){
+          alert("El campo nombre no puede estar vacio");
+          formulario.nombre.focus();
+          return (false);
+        }
+
+        //Validacion de apellido
+        if(apellidolargo < 1){
+          alert("El campo apellido no puede estar vacio");
+          formulario.apellido.focus();
+          return (false);
+        }
+
+        //Validacion de cedula
+        if(cedulalargo < 1){
+          alert("El campo cedula no puede estar vacio");
+          formulario.cedula.focus();
+          return (false);
+        }
+
+        //Validacion de cedula <> a numeros
+
+          cont = 0;
+          for(i=0;i<cedulalargo;i++)
+       {
+          ch = cedula.charAt(i);
+          for (j=0;j<listanumeros.length; j++)
+         {
+            if(ch ==listanumeros.charAt(j))
+             {
+                cont = cont + 1;
+                j = listanumeros.length;
+                break;
+              }
+          }
+        }
+        if(cont < cedulalargo)
+        {
+          alert("El campo cedula tiene caracteres no permitidos, solo se aceptan numeros");
+          formulario.cedula.focus();
+          return (false);
+        }
+
+        //Validacion de genero
+        if(genero == null || genero.length == 0){
+          alert("La opcion de genero debe ser seleccionada");
+          return (false);
+        }
+
+        //Validacion de fecha
+        if(fechaingreso == ""){
+          alert("El campo de Fecha Ingreso debe ser seleccionada");
+          formulario.fechaingreso.focus();
+          return (false);
+        }
+
+        //Validacion de sueldo basico
+        if(sueldobasico == ""){
+          alert("El campo Sueldo basico debe ser ingresado");
+          formulario.sueldobasico.focus();
+          return (false);
+        }
+
+        /* Validacion de sueldo mayor o menos*/
+
+        if (!isNaN(sueldobasico)) {
+          sueldobasico = !isNaN(sueldobasico) ? parseInt(sueldobasico, 10) : 0; //si es una cadena vacia o cualquier cosa que no sea numero total = 0
+          sueldobasico = parseInt(sueldobasico, 10) + parseInt(sueldobasico, 10);
+          //document.getElementById("total_bultos").value = total_bultos;
+        } else {
+          console.error('Error, cantidad no valida');
+        }
+
+/*
+        if (number(sueldobasico) < VALORSALARIOMINIMO){
+            alert("El sueldo basico debe ser mayor a $ 980.657, de acuerdo a (Salario mínimo Legal Vigente año 2020 ");
+            formulario.sueldobasico.focus();
+            return(false);
+        }else if (parseint(sueldobasico) > 15000000){
+            alert("El sueldo basico debe ser menor a $ 15.000.000");
+            formulario.sueldobasico.focus();
+            return(false);
+        }
+
+        */
+
+        /* calculo subsidio de transporte */
+
+          if (parseint(sueldobasico) < (VALORSALARIOMINIMO + VALORSALARIOMINIMO)) {
+            subsidiotransporte = (VALORSUBSTRANSP).toString();
+
+          } else {
+            subsidiotransporte = 0;
+          }
+
+          /* calculo subsidio familiar */
+
+            if (parseint(numerohijos) >=1) {
+              subsidiofamiliar =  (VALORSUBFAM * parseint(numerohijos)).toString();
+
+            } else {
+              subsidiofamiliar = 0
+            }
+
+            /* calculo valor total devengado */
+
+              totaldevengado = (parseint(pasueldobasico) + parseint(subsidiotransporte) + parseint(subsidiofamiliar)).toString;
+
+        /*
+
+       if(largoclave<4)
+        {
+          alert("Favor ingrese datos completos al password");
+          formulario.password.focus();
+          return (false);
+        }
+        if(largoclave1<4)
+        {
+          alert("Favor ingrese datos completos a la confimacion del password");
+          formulario.password1.focus();
+          return (false);
+        }
+
+          if(formulario.password.value != formulario.password1.value){
+            alert("El password debe ser igual en ambos campos.");
+               return (false);
+        }
+
+        if(dia=="0")
+        {
+            alert("Dia no puede ser 0");
+            return (false);
+        }
+        if(mes=="0"){
+            alert("Mes no puede ser 0");
+            return (false);
+        }
+        if(ano=="0"){
+            alert("A�o no puede ser 0");
+            return (false);
+        }
+        if(mes == "2"){
+            if(dia == "29" || dia == "30" || dia == "31"){
+                alert("Fecha no valida.");
+               return (false);
+            }
+        }
+        if(mes == "4"){
+            if(dia == "31"){
+                alert("Fecha no valida.");
+               return (false);
+            }
+        }
+        if(mes == "6"){
+            if(dia == "31"){
+                alert("Fecha no valida.");
+               return (false);
+            }
+        }
+
+        if(mes == "9"){
+            if(dia == "31"){
+                alert("Fecha no valida.");
+               return (false);
+            }
+        }
+        if(mes == "11")
+        {
+            if(dia == "31")
+            {
+                alert("Fecha no valida.");
+               return (false);
+            }
+        }
+        */
+      }
+      </script>
+  </head>
+  <body>
+    <!-- Inicio de formulario -->
+    <form name="formulario"  ACTION ="programa1.php" METHOD="get" onSubmit="return Validar(this);">
+
+      <!-- Titulo del formulario -->
+      <h1>Registro de empleado</h1>
+
+      <!-- Agrupacion de campos -->
+      <fieldset>
+
+        <!-- Titulo de agrupacion de campos -->
+        <legend><span class="number">1</span>Ingrese los datos del empleado</legend>
+
+        <!-- Campo nombre -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <!-- Campo apellido -->
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido">
+
+        <!-- Campo cedula -->
+        <label for="cedula">Cedula:</label>
+        <input placeholder="Ingrese solo numeros"  type="text" id="cedula" name="cedula">
+
+        <!-- Campo genero -->
+        <label for="genero">Genero:</label>
+        <input type="radio" id="genero" value="Masculino" name="genero"><label for="under_13" class="light">Masculino</label><br>
+        <input type="radio" id="genero" value="Femenino" name="genero"><label for="over_13" class="light">Femenino</label><br>
+
+        <!-- Campo fecha Ingreso -->
+        <label for="fechaingreso">Fecha de ingreso:</label>
+        <input type="date" id="fechaingreso" name="fechaingreso">
+
+        <!-- Campo sueldo basico -->
+        <label for="sueldobasico">Sueldo basico:</label>
+        <input placeholder="Ingrese el valor numerico sin . o ," type="text" id="sueldobasico" name="sueldobasico">
+
+        <!-- Campo numero de hijos -->
+        <label for="numerohijos">Numero de hijos:</label>
+        <input placeholder="Ingrese el valor numerico" type="text" id="numerohijos" name="numerohijos">
+
+        <!-- Campo subisidio de transporte -->
+        <label for="subsidiotransporte">Subsidio de transporte:</label>
+        <input readonly placeholder="campo de solo lectura" type="text" id="subsidiotransporte" name="subsidiotransporte">
+
+        <!-- Campo subisidio familiar -->
+        <label for="subsidiofamiliar">Subsidio familiar:</label>
+        <input readonly placeholder="campo de solo lectura" type="text" id="subsidiofamiliar" name="subsidiofamiliar">
+
+        <!-- Campo total devengado -->
+        <label for="totaldevengado">Total devengado:</label>
+        <input readonly placeholder="campo de solo lectura" type="text" id="totaldevengado" name="totaldevengado">
+
+      </fieldset>
+
+      <button type="submit">Guardar</button>
+      <a href="index.html"><button>Volver</button></a>
+    </form>
+    <!-- Fin formulario -->
+
+  </body>
+</html>
