@@ -108,13 +108,26 @@
 
         /* Validacion de sueldo mayor o menos*/
 
-        if (!isNaN(sueldobasico)) {
+        if (sueldobasico < VALORSALARIOMINIMO) {
+          alert("El sueldo basico debe ser mayor a $ 980.657, de acuerdo al Salario mínimo Legal Vigente año 2020 ");
+          formulario.sueldobasico.focus();
+          return(false);
+        } else if (sueldobasico > 15000000){
+            alert("El sueldo basico debe ser menor a $ 15.000.000");
+            formulario.sueldobasico.focus();
+            return(false);
+        }
+
+
+
+        /*if (!isNaN(sueldobasico)) {
           sueldobasico = !isNaN(sueldobasico) ? parseInt(sueldobasico, 10) : 0; //si es una cadena vacia o cualquier cosa que no sea numero total = 0
           sueldobasico = parseInt(sueldobasico, 10) + parseInt(sueldobasico, 10);
           //document.getElementById("total_bultos").value = total_bultos;
         } else {
           console.error('Error, cantidad no valida');
         }
+        */
 
 /*
         if (number(sueldobasico) < VALORSALARIOMINIMO){
@@ -131,17 +144,19 @@
 
         /* calculo subsidio de transporte */
 
-          if (parseint(sueldobasico) < (VALORSALARIOMINIMO + VALORSALARIOMINIMO)) {
-            subsidiotransporte = (VALORSUBSTRANSP).toString();
+          if (sueldobasico < (VALORSALARIOMINIMO + VALORSALARIOMINIMO)) {
+            subsidiotransporte = VALORSUBSTRANSP;
+            //subsidiotransporte.value = subsidiotransporte;
 
           } else {
             subsidiotransporte = 0;
+            //subsidiotransporte.value = subsidiotransporte;
           }
 
           /* calculo subsidio familiar */
 
-            if (parseint(numerohijos) >=1) {
-              subsidiofamiliar =  (VALORSUBFAM * parseint(numerohijos)).toString();
+            if (numerohijos >=1) {
+              subsidiofamiliar =  (VALORSUBFAM * numerohijos);
 
             } else {
               subsidiofamiliar = 0
@@ -149,7 +164,8 @@
 
             /* calculo valor total devengado */
 
-              totaldevengado = (parseint(pasueldobasico) + parseint(subsidiotransporte) + parseint(subsidiofamiliar)).toString;
+              totaldevengado = pasueldobasico + subsidiotransporte + subsidiofamiliar;
+              alert("El salario es:" + totaldevengado);
 
         /*
 
@@ -219,6 +235,100 @@
         }
         */
       }
+
+      function calculoSubTransporte(sueldobasico,subsidiotransporte){
+
+      //gndtotal= totaltext.value - inputtext.value ;
+
+      /*Parametros:*/
+      //Variables constantes
+      const VALORSUBSTRANSP = 102854; // valor de subsidio de transporte
+      const VALORSUBFAM = 70000; //  valor de subsidio familiar
+      const VALORSALARIOMINIMO = 980657;
+      /*
+      cantidad - entero con la cantidad
+      precio - entero con el precio
+      inputtotal - nombre del elemento del formulario donde ira el total
+      */
+
+      // Calculo del subtotal
+      if (sueldobasico < (VALORSALARIOMINIMO + VALORSALARIOMINIMO)) {
+            subsidiotransporte = VALORSUBSTRANSP;
+            //subsidiotransporte.value= subsidiotransporte;
+            formulario.subsidiotransporte.value = subsidiotransporte;
+
+          } else {
+            subsidiotransporte = 0;
+            formulario.subsidiotransporte.value = subsidiotransporte;
+
+          }
+        }
+
+        function calculoSubFamiliar(numerohijos,subsidiofamiliar){
+
+        //gndtotal= totaltext.value - inputtext.value ;
+
+        /*Parametros:*/
+        //Variables constantes
+        const VALORSUBSTRANSP = 102854; // valor de subsidio de transporte
+        const VALORSUBFAM = 70000; //  valor de subsidio familiar
+        const VALORSALARIOMINIMO = 980657;
+        /*
+        cantidad - entero con la cantidad
+        precio - entero con el precio
+        inputtotal - nombre del elemento del formulario donde ira el total
+        */
+
+        // Calculo del subtotal
+
+
+          if (numerohijos >=1) {
+            subsidiofamiliar =  (VALORSUBFAM * numerohijos);
+            formulario.subsidiofamiliar.value = subsidiofamiliar;
+          } else {
+            subsidiofamiliar = 0
+            formulario.subsidiofamiliar.value = subsidiofamiliar;
+          }
+
+        }
+
+
+        function calculoTotal(sueldobasico,subsidiofamiliar,subsidiotransporte,totaldevengado){
+
+        //gndtotal= totaltext.value - inputtext.value ;
+
+        /*Parametros:*/
+        //Variables constantes
+        const VALORSUBSTRANSP = 102854; // valor de subsidio de transporte
+        const VALORSUBFAM = 70000; //  valor de subsidio familiar
+        const VALORSALARIOMINIMO = 980657;
+        /*
+        cantidad - entero con la cantidad
+        precio - entero con el precio
+        inputtotal - nombre del elemento del formulario donde ira el total
+        */
+
+        // Calculo del subtotal
+
+
+          formulario.totaldevengado.value = sueldobasico + subsidiofamiliar + subsidiotransporte;
+
+        }
+
+      /*
+      subsidiotransporte = (precio*cantidad);
+      inputtext.value= subtotal;
+      */
+      //
+
+
+      //Actualizar el total
+      // Utilizamos el eval. Ya que el valor es un texto y si lo tratamos como tal
+      // es como si estuviesemos manipulando una cadena.
+      /*total = eval(gndtotal);
+      totaltext.value= total + subtotal;
+      }
+      */
       </script>
   </head>
   <body>
@@ -257,19 +367,19 @@
 
         <!-- Campo sueldo basico -->
         <label for="sueldobasico">Sueldo basico:</label>
-        <input placeholder="Ingrese el valor numerico sin . o ," type="text" id="sueldobasico" name="sueldobasico">
-
+        <!--<input placeholder="Ingrese el valor numerico sin . o ," type="text" id="sueldobasico" name="sueldobasico"  > -->
+        <input placeholder="Ingrese el valor numerico sin . o ," type="text" id="sueldobasico" name="sueldobasico" onChange="calculoSubTransporte(this.value,subsidiotransporte);" >
         <!-- Campo numero de hijos -->
         <label for="numerohijos">Numero de hijos:</label>
-        <input placeholder="Ingrese el valor numerico" type="text" id="numerohijos" name="numerohijos">
+        <input placeholder="Ingrese el valor numerico" type="text" id="numerohijos" name="numerohijos" onChange="calculoSubFamiliar(this.value,subsidiofamiliar);" >
 
         <!-- Campo subisidio de transporte -->
         <label for="subsidiotransporte">Subsidio de transporte:</label>
-        <input readonly placeholder="campo de solo lectura" type="text" id="subsidiotransporte" name="subsidiotransporte">
+        <input type="text" id="subsidiotransporte" name="subsidiotransporte" value="">
 
         <!-- Campo subisidio familiar -->
         <label for="subsidiofamiliar">Subsidio familiar:</label>
-        <input readonly placeholder="campo de solo lectura" type="text" id="subsidiofamiliar" name="subsidiofamiliar">
+        <input readonly placeholder="campo de solo lectura" type="text" id="subsidiofamiliar" name="subsidiofamiliar" value="">
 
         <!-- Campo total devengado -->
         <label for="totaldevengado">Total devengado:</label>

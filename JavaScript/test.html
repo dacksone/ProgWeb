@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>formula de costos</title>
+<script>
+
+function calculo(cantidad,precio,inputtext,totaltext){
+
+gndtotal= totaltext.value - inputtext.value ;
+
+/* Parametros:
+cantidad - entero con la cantidad
+precio - entero con el precio
+inputtotal - nombre del elemento del formulario donde ira el total
+*/
+
+// Calculo del subtotal
+subtotal = (precio*cantidad);
+inputtext.value= subtotal;
+//
+
+
+//Actualizar el total
+// Utilizamos el eval. Ya que el valor es un texto y si lo tratamos como tal
+// es como si estuviesemos manipulando una cadena.
+total = eval(gndtotal);
+totaltext.value= total + subtotal;
+}
+
+</script>
+
+
+<body>
+
+<h1>Compra de Frutas</h1>
+
+<form>
+
+<table>
+<tr>
+<td></td>
+<td>Cantidad</td>
+<td>Precio/Ud</td>
+<td>Total</td>
+</tr>
+<tr>
+<td>monto compra</td>
+<td><input type="text" size="3" id="platanos" value="" onChange="calculo(this.value,precioplatanos.value,totalplatanos,total);"></td>
+<td><input type="text" size="3" id="precioplatanos" value="" onChange="calculo(this.value,platanos.value,totalplatanos,total);"/> </td>
+<td><input type="text" size="8" id="totalplatanos" value="0"></td>
+</tr>
+<tr>
+<td>costo 1</td>
+<td><input type="text" size="3" id="manzanas" value="" onChange="calculo(this.value,totalplatanos.value,totalmanzanas,total);"></td>
+<td><input type="hidden" id="preciomanzanas" value="3"/></td>
+<td><input type="text" size="8" id="totalmanzanas" value="0"></td>
+</tr>
+<tr>
+<td>costo 2</td>
+<td><input type="text" size="3" id="peras" value="" onChange="calculo(this.value,totalplatanos.value,totalperas,total);"></td>
+<td><input type="hidden" id="precioperas" value="2"/></td>
+<td><input type="text" size="8" id="totalperas" value="0"></td>
+</tr>
+<tr>
+<td>gasto envio</td>
+<td><input type="text" size="3" id="uvas" value="" onChange="calculo(this.value,preciouvas.value,totaluvas,total);"></td>
+<td><input type="hidden" id="preciouvas" value="1"/></td>
+<td><input type="text" size="8" id="totaluvas" value="0"></td>
+</tr>
+<tr>
+<td>iva</td>
+<td><input type="text" id="melocotones" value="" onChange="calculo(this.value,parseInt(totaluvas.value) + parseInt(totalperas.value) + parseInt(totalmanzanas.value),totalmelocotones,total);"></td>
+<td><input type="hidden" id="preciomelocotones" value=""/></td>
+<td><input type="text" size="8" id="totalmelocotones" value="0"></td>
+
+
+</tr>
+<tr>
+<td>Total</td>
+
+<td><input type="text" id="total" value=""></td></tr>
+
+
+<tr>
+<input type='reset' value='limpiar'>
+
+</tr>
+</table>
+
+
+</form>
+
+
+</body>
+</html>
