@@ -17,6 +17,17 @@ form {
   border-radius: 8px;
 }
 
+table {
+  width: 100%;
+  border: 6px solid #3ac162;
+
+}
+th, td {
+  width: 25%;
+  text-align: center;
+  border: 1px solid #24943A;
+}
+
 div {
   max-width: 500px;
   margin: 10px auto;
