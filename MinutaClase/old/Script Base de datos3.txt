@@ -1,0 +1,56 @@
+create database modelonotas3;
+use modelonotas3;
+
+CREATE TABLE Docentes (
+ceduladocente BIGINT PRIMARY KEY,
+nombresdocente VARCHAR(30) NOT NULL,
+apellidosdocente VARCHAR(30) NOT NULL,
+emaildocente VARCHAR(30) NOT NULL
+);
+CREATE TABLE Estudiantes (
+codigoestudiante BIGINT PRIMARY KEY,
+nombreestudiante VARCHAR(30) NOT NULL,
+apellidosestudiante VARCHAR(30) NOT NULL,
+fechanacimiento DATE NOT NULL,
+generoestudiante VARCHAR(15) NOT NULL
+);
+CREATE TABLE Materias (
+codigomateria VARCHAR(20) PRIMARY KEY,
+nombremateria VARCHAR(30) NOT NULL,
+creditosmateria INT NOT NULL
+);
+
+CREATE TABLE Notas (
+consecutivonota bigint AUTO_INCREMENT primary key,
+estudiantenota bigint NOT NULL,
+materianota varchar(20) NOT NULL,
+docentenota bigint NOT NULL,
+valornota float NOT NULL,
+foreign key (estudiantenota) references Estudiantes(codigoestudiante),
+foreign key (docentenota) references Docentes(ceduladocente),
+foreign key (materianota) references Materias(codigomateria) 
+);
+
+
+use modelonotas3;
+insert into docentes (ceduladocente,nombresdocente,apellidosdocente,emaildocente) values (123456,'Luis Carlos ','Perez Torres','luisperez@libertadores.edu.co' );
+
+insert into docentes (ceduladocente,nombresdocente,apellidosdocente,emaildocente) values (987654,'Ana Rosa ','Pulido Almanza','anarosa@libertadores.edu.co' );
+
+insert into docentes (ceduladocente,nombresdocente,apellidosdocente,emaildocente) values (123654,'Luis Carlos ','Almanza','almanza@libertadores.edu.co' );
+
+insert into estudiantes (codigoestudiante,nombreestudiante,apellidosestudiante, fechanacimiento,generoestudiante) values (999999,'Mery Valentina','Alvarado Amado','1999/07/20','Femenino');
+
+insert into estudiantes (codigoestudiante,nombreestudiante,apellidosestudiante, fechanacimiento,generoestudiante) values (888888,'Juan Alejandro','Sierra Diaz','1996/06/27','Masculino');
+
+insert into estudiantes (codigoestudiante,nombreestudiante,apellidosestudiante, fechanacimiento,generoestudiante) values (777777,'Juan Esteban','DuranDiaz','1994/03/25','Masculino');
+
+insert into materias (codigomateria,nombremateria,creditosmateria) values ('10101010','Sistemas Expertos',3);
+
+insert into materias (codigomateria,nombremateria,creditosmateria) values ('20202020','Inteligencia Artificial',3);
+
+insert into materias (codigomateria,nombremateria,creditosmateria) values ('30303030','Fisica II',3);
+
+insert into notas (estudiantenota,materianota, docentenota, valornota) values (888888, '20202020',123456,3.5);
+
+
